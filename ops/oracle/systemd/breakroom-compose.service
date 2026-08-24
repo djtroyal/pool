@@ -1,0 +1,19 @@
+[Unit]
+Description=Breakroom Pool containers
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+RequiresMountsFor=/srv/breakroom
+ConditionPathExists=/opt/breakroom/.env.production
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/breakroom
+ExecStart=/usr/bin/docker compose --env-file /opt/breakroom/.env.production -f /opt/breakroom/compose.production.yaml up -d
+ExecStop=/usr/bin/docker compose --env-file /opt/breakroom/.env.production -f /opt/breakroom/compose.production.yaml stop
+TimeoutStartSec=180
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

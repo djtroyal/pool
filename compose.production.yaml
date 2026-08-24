@@ -1,0 +1,69 @@
+name: breakroom-pool
+
+services:
+  app:
+    image: ${APP_IMAGE:?Set APP_IMAGE to an immutable GHCR digest}
+    init: true
+    restart: unless-stopped
+    stop_grace_period: 15s
+    environment:
+      PORT: '3001'
+      CLIENT_ORIGIN: http://127.0.0.1:3001
+      ALLOW_TRYCLOUDFLARE_ORIGIN: 'true'
+      TRUST_CLOUDFLARE_IP: 'true'
+      RATE_LIMITS_ENABLED: 'true'
+      DATA_DIR: /app/data
+      APP_VERSION: ${APP_VERSION:-development}
+      PASSPORT_MASTER_KEY_FILE: /run/secrets/passport_master_key
+      NODE_OPTIONS: --max-old-space-size=6144
+    ports:
+      - 127.0.0.1:3001:3001
+    volumes:
+      - type: bind
+        source: ${DATA_ROOT:-/srv/breakroom}/data
+        target: /app/data
+      - type: bind
+        source: ${PASSPORT_MASTER_KEY_PATH:-/etc/breakroom/passport-master-key}
+        target: /run/secrets/passport_master_key
+        read_only: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 256
+    mem_limit: 8g
+    cpus: 1.75
+    healthcheck:
+      test: [CMD, node, --eval, "fetch('http://127.0.0.1:3001/health').then((response)=>{if(!response.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 20s
+      timeout: 4s
+      start_period: 20s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: '3'
+
+  cloudflared:
+    image: ${CLOUDFLARED_IMAGE:-cloudflare/cloudflared:latest}
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    command: tunnel --no-autoupdate --url http://app:3001
+    read_only: true
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    pids_limit: 64
+    mem_limit: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: '3'

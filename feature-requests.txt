@@ -1,0 +1,57 @@
+Feature add:
+1. Reset Strike Velocity to 50% after every shot
+
+Fun Game Mode settings (each provides XP bonus and can be enabled by the Host as part of game mode setting):
+1. Rebound challenge. Most bounces off the rails before sinking.
+2. Strike Velocity Supercharge.
+3. Break challenge. Most sunk on break.
+4. Quickest to sink 8 ball. Least strokes/time.
+5. Guess where they'll end up. Allow user to guess which ball(s) will end up in which position(s) on the table after striking
+6. Full-velocity-only mode.
+7. No-side mode. Nobody owns solids or stripes, but all must be sunk before the 8-ball.
+8. No-side mode where the shooter must alternate sinking solids and stripes.
+9. Bank-first. Sinks only count if the object ball is banked first.
+10. Indirect. No object balls may be hit directly by the cue ball. Cue ball must rebound off a rail/jaw/cushion first.
+11. Blind mode. The object balls' identities are masked until the cue ball is in motion.
+
+
+-- Handicap Mode. Apply a weighted handicap value to each of the player aids. Allow handicap to apply to the end score and the XP earned each shot. Also allow the Host to allocate a handicap allowance instead of explicitly restricting specific aids. (PLAN MODE)
+
+Game Modes / Specialty Balls:
+1. Neverending balls. Every sunk ball is replaced.
+2. Sink-em-all challenge. More balls are added to the table periodically. Rate speeds up over time (the better you do, the harder the challenge becomes) Sink them all to win.
+3. Balls explode when struck.
+4. On a boat. The table pitches and rolls as if aboard a ship! The balls gently roll to-and-fro accordingly and must be accounted for when shooting.
+5. Bounty hunt. A rouge live oject ball is announced as the bounty, if potted will award the XP prize.
+6. APB. Random live object ball will be announced as the target. The only pottable ball is the target ball.
+7. Double-team. Object balls can only be potted if they are first struck by another object ball.
+8. Ghost. The first object ball that would be struck becomes ehtereal, the cue ball passes right through it, only striking the next ball in its path.
+9. Timebomb. The cue ball ticks down from 10 seconds, exploding at zero, blasting the object balls nearby in accordance with proximity.
+10. Under construction. Random pockets become unavailable at times, and object balls cannot be potted in them during this maintenance period.
+11. Sabotage. Opponent can sabotage the table by placing an obstruction on the table or moving a single ball
+12. Decoy. Opponent can place a decoy ball or disguise an existing ball as another.
+13. Bouncy rails. Rails are springy and impart an extra velocty jolt into whatever collides with them.
+14. Bouncy balls. Balls are bouncier than usual and impart an extra velocity into whatever collides with them.
+15. Volatile cue ball.  The cue ball is spicier than usual and imparts an extra velocity into whatever it collides with.
+16. Invisible cue ball. Cue ball is invisible; no trajectory aids will work either.
+17. Special Hole. One pocket open and it moves around the table. Object balls can only be potted in the special hole.
+18. Portal Pockets. Some pockets become portals to another pocket's output. Balls entering these portal pockets will go in one portal pocket and out the other.
+19. Follows only. Must follow every potted object ball with a scratch of the cue ball in the same pocket (follow scratch).
+20. Scratches only. Cue ball must scratch after any run for any potted balls to count.
+21. 8-ball every shot. You must follow every pot by also potting an 8-ball. Either in the same shot, or in the follow-up shot. Potting an 8-ball ends the user turn.
+22. Reverse 9-ball.
+23. Roy-G-Biv. Balls must be potted in rainbow color spectrum order.
+24. Premonition. Practice shoot your shot to see how it plays out before actually committing.
+25. Double-Shot. Sequential valid shots only. Must pot a second valid ball after potting the first.
+26. Double-Shot Decaf. Sequential invalid shots only. Must pot a second invalid (other-player's) ball after potting the first valid ball.
+27. Scratch First. Must pot the cue ball before the object ball goes in.
+28. Ricochet. Object balls can only be potted if ricocheted off another ball in the process.
+29. No pocket lives twice. Pocket disappears after a rack where a ball/balls are potted into it. Multiple object balls can be chained into this pocket. The pocket becomes unavailable after the last ball is potted into it during a given run.
+30.Alternating Pockets. Any single pocket cannot be potted into sequentially.
+31.Alternating Quadrants. Valid pockets alternate table halves, either horizontally or vertically, after a ball is potted
+32. No Aids. No visual trajectory aids.
+33. No Touchy. A random object ball is designated. Players lose if they touch this ball.
+34. Target. A random object ball is selected as the target ball. Penalize user for hitting or potting any other object ball. Penalize user for hitting the target ball without potting it.
+
+
+Some of these should be treated as XP bonuses, if the user opts to take on more crippling handicaps than is required by the Host.

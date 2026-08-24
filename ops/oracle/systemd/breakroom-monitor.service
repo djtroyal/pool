@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Breakroom health, storage, backup freshness, and public URL
+After=docker.service network-online.target
+Wants=network-online.target
+RequiresMountsFor=/srv/breakroom
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/breakroom-monitor
+NoNewPrivileges=true

@@ -1,0 +1,14 @@
+[Unit]
+Description=Create and upload an encrypted Breakroom SQLite backup
+After=network-online.target
+Wants=network-online.target
+RequiresMountsFor=/srv/breakroom
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/breakroom-backup
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+PrivateTmp=true
+NoNewPrivileges=true

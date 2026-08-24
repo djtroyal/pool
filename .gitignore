@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+.env
+.env.production
+.env.backup
+.DS_Store
+*.log
+data/
+*.sqlite-wal
+*.sqlite-shm

@@ -1,0 +1,25 @@
+{
+  "name": "@breakroom/server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc --noEmit && tsup",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@breakroom/game-core": "*",
+    "cors": "latest",
+    "express": "latest",
+    "socket.io": "latest"
+  },
+  "devDependencies": {
+    "@types/cors": "latest",
+    "@types/express": "latest",
+    "@types/node": "latest",
+    "tsup": "latest",
+    "tsx": "latest"
+  }
+}
