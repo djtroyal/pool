@@ -19,7 +19,6 @@ COPY package.json package-lock.json ./
 COPY apps/server/package.json apps/server/package.json
 COPY packages/game-core/package.json packages/game-core/package.json
 RUN --mount=type=cache,target=/root/.npm npm ci --omit=dev --workspace @breakroom/server --workspace @breakroom/game-core \
-  && npm cache clean --force \
   && mkdir -p /app/data \
   && chown node:node /app/data
 COPY --chown=node:node --from=build /app/apps/server/dist apps/server/dist
